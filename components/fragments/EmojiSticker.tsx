@@ -4,7 +4,6 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { View, Image } from "react-native";
 
 interface ImageProperties {
   imageSize: number;
@@ -24,6 +23,8 @@ export default function EmojiSticker({
     .onStart(() => {
       if (scaleImage.value !== imageSize * 2) {
         scaleImage.value = scaleImage.value * 2;
+      } else if (scaleImage.value == imageSize * 2) {
+        scaleImage.value = scaleImage.value / 2;
       }
     });
 
